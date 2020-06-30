@@ -40,7 +40,8 @@ limitations under the License.
                             </ul>
                         </div>
                     </article>
-                    <textarea v-text="output" readonly></textarea>
+                    <textarea readonly v-text="output"></textarea>
+                    <textarea readonly v-if="map" v-text="map"></textarea>
                 </div>
             </div>
 
@@ -70,6 +71,7 @@ limitations under the License.
                 error: '',
                 warn: '',
                 output: '',
+                map: '',
                 config: Config.delegated,
             };
         },
@@ -79,10 +81,12 @@ limitations under the License.
                     ...this.$data.config,
                     warnings: 'verbose',
                 };
+                console.log(options);
                 const result = terser.minify(this.$data.input, options);
                 this.$data.error = result.error;
                 this.$data.warn = result.warnings;
                 this.$data.output = result.code;
+                this.$data.map = result.map;
             },
         },
         watch: {
