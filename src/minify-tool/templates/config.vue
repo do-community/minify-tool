@@ -21,7 +21,7 @@ limitations under the License.
 
         <div class="field is-horizontal is-aligned-top">
             <div class="field-label">
-                <label class="label">Module</label>
+                <label class="label">{{ i18n.templates.config.module }}</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -29,7 +29,7 @@ limitations under the License.
                         <div class="checkbox">
                             <PrettyCheck v-model="config.module" class="p-default p-curve p-fill p-icon">
                                 <i slot="extra" class="icon fas fa-check"></i>
-                                Enable if you are minifying an ES6 module
+                                {{ i18n.templates.config.moduleDesc }}
                             </PrettyCheck>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ limitations under the License.
 
         <div class="field is-horizontal">
             <div class="field-label">
-                <label class="label">File name</label>
+                <label class="label">{{ i18n.templates.config.filename }}</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -50,7 +50,7 @@ limitations under the License.
                                placeholder="dist.min.js"
                         />
                         <br />
-                        <small>Provide a file name for your script to enable source map generation</small>
+                        <small>{{ i18n.templates.config.filenameDesc }}</small>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@ limitations under the License.
 
         <div class="field is-horizontal">
             <div class="field-label">
-                <label class="label">Comments</label>
+                <label class="label">{{ i18n.templates.config.comments }}</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -76,6 +76,7 @@ limitations under the License.
 </template>
 
 <script>
+    import i18n from '../i18n';
     import PrettyCheck from 'pretty-checkbox-vue/check';
     import VueSelect from 'vue-select';
     import CompressConfig from './config/compress';
@@ -103,11 +104,12 @@ limitations under the License.
         },
         data() {
             return {
+                i18n,
                 filename: '',
                 commentsOptions: [
-                    { label: 'Remove all comments', value: false },
-                    { label: 'Preserve JSDoc @preserve and @license comments', value: 'some' },
-                    { label: 'Keep all comments', value: true },
+                    { label: i18n.templates.config.commentsRemove, value: false },
+                    { label: i18n.templates.config.commentsPreserve, value: 'some' },
+                    { label: i18n.templates.config.commentsKeep, value: true },
                 ],
             };
         },

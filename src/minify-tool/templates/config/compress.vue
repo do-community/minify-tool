@@ -17,7 +17,7 @@ limitations under the License.
 <template>
     <div class="field is-horizontal is-aligned-top">
         <div class="field-label">
-            <label class="label">Compress</label>
+            <label class="label">{{ i18n.templates.config.compress.compress }}</label>
         </div>
         <div class="field-body is-vertical">
             <div class="field">
@@ -25,7 +25,7 @@ limitations under the License.
                     <div class="checkbox">
                         <PrettyCheck v-model="compressBool" class="p-default p-curve p-fill p-icon">
                             <i slot="extra" class="icon fas fa-check"></i>
-                            Compress the output script
+                            {{ i18n.templates.config.compress.compressDesc }}
                         </PrettyCheck>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.dead_code" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Remove unreachable code from the script
+                                        {{ i18n.templates.config.compress.deadCodeDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.drop_console" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Remove calls to console.* from the script
+                                        {{ i18n.templates.config.compress.dropConsoleDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.drop_debugger" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Remove calls to debugger from the script
+                                        {{ i18n.templates.config.compress.dropDebuggerDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_classnames" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Preserve unused classes in the script
+                                        {{ i18n.templates.config.compress.keepClassnamesDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_fargs" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Preserve unused arguments within functions
+                                        {{ i18n.templates.config.compress.keepFargsDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_fnames" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Preserve unused functions in the script
+                                        {{ i18n.templates.config.compress.keepFnamesDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_infinity" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Preserve `Infinity` usage, instead of replacing it with `1/0`
+                                        {{ i18n.templates.config.compress.keepInfinityDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -163,6 +163,7 @@ limitations under the License.
 </template>
 
 <script>
+    import i18n from '../../i18n';
     import PrettyCheck from 'pretty-checkbox-vue/check';
 
     export default {
@@ -175,6 +176,7 @@ limitations under the License.
         },
         data() {
             return {
+                i18n,
                 compressBool: false,
                 compressOpts: {
                     dead_code: true,

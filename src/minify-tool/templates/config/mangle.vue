@@ -17,7 +17,7 @@ limitations under the License.
 <template>
     <div class="field is-horizontal is-aligned-top">
         <div class="field-label">
-            <label class="label">Mangle</label>
+            <label class="label">{{ i18n.templates.config.mangle.mangle }}</label>
         </div>
         <div class="field-body is-vertical">
             <div class="field">
@@ -25,7 +25,7 @@ limitations under the License.
                     <div class="checkbox">
                         <PrettyCheck v-model="mangleBool" class="p-default p-curve p-fill p-icon">
                             <i slot="extra" class="icon fas fa-check"></i>
-                            Mangle variable names within the script
+                            {{ i18n.templates.config.mangle.mangleDesc }}
                         </PrettyCheck>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.eval" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Mangle variable names within `eval` scopes
+                                        {{ i18n.templates.config.mangle.evalDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.keep_classnames" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Enable to preserve class names and not mangle them
+                                        {{ i18n.templates.config.mangle.classnamesDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.keep_fnames" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Enable to preserve function names and not mangle them
+                                        {{ i18n.templates.config.mangle.fnamesDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.toplevel" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Enable to mangle names within the top-level scope
+                                        {{ i18n.templates.config.mangle.toplevelDesc }}
                                     </PrettyCheck>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ limitations under the License.
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.safari10" class="p-default p-curve p-fill p-icon">
                                         <i slot="extra" class="icon fas fa-check"></i>
-                                        Enable to work around a Safari 10 iterator bug
+                                        {{ i18n.templates.config.mangle.safari10Desc }}
                                         <!-- TODO: external link to terser docs -->
                                     </PrettyCheck>
                                 </div>
@@ -128,6 +128,7 @@ limitations under the License.
 </template>
 
 <script>
+    import i18n from '../../i18n';
     import PrettyCheck from 'pretty-checkbox-vue/check';
 
     export default {
@@ -140,6 +141,7 @@ limitations under the License.
         },
         data() {
             return {
+                i18n,
                 mangleBool: true,
                 mangleOpts: {
                     eval: false,
