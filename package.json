@@ -1,7 +1,7 @@
 {
   "name": "minify-tool",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web tool for the DigitalOcean Community to quickly minify JavaScript files.",
   "license": "Apache-2.0",
   "scripts": {
     "build": "npm run build:clean && npm run build:template && npm run build:static && npm run build:tool",
