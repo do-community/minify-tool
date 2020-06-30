@@ -303,7 +303,7 @@ limitations under the License.
                                type="text"
                                placeholder="dist.min.js"
                         />
-                        <br/>
+                        <br />
                         <small>Provide a file name for your script to enable source map generation</small>
                     </div>
                 </div>
@@ -382,20 +382,6 @@ limitations under the License.
                 ],
             };
         },
-        methods: {
-            setCompress() {
-                this.$props.config.compress = this.$data.compressBool === false ? false : this.$data.compressOpts;
-            },
-            setMangle() {
-                this.$props.config.mangle = this.$data.mangleBool === false ? false : this.$data.mangleOpts;
-            },
-            setSourceMap() {
-                this.$props.config.sourceMap = this.$data.filename.length ? {
-                    filename: this.$data.filename,
-                    url: `${this.$data.filename}.map`,
-                } : false;
-            }
-        },
         watch: {
             compressBool() {
                 this.setCompress();
@@ -423,6 +409,20 @@ limitations under the License.
             this.setCompress();
             this.setMangle();
             this.setSourceMap();
+        },
+        methods: {
+            setCompress() {
+                this.$props.config.compress = this.$data.compressBool === false ? false : this.$data.compressOpts;
+            },
+            setMangle() {
+                this.$props.config.mangle = this.$data.mangleBool === false ? false : this.$data.mangleOpts;
+            },
+            setSourceMap() {
+                this.$props.config.sourceMap = this.$data.filename.length ? {
+                    filename: this.$data.filename,
+                    url: `${this.$data.filename}.map`,
+                } : false;
+            },
         },
     };
 </script>

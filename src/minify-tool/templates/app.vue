@@ -41,7 +41,7 @@ limitations under the License.
                         </div>
                     </article>
                     <textarea readonly v-text="output"></textarea>
-                    <textarea readonly v-if="map" v-text="map"></textarea>
+                    <textarea v-if="map" readonly v-text="map"></textarea>
                 </div>
             </div>
 
