@@ -14,15 +14,43 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-$header: #0071fe;
-@import "~do-bulma/src/style";
+.field {
+  &.is-horizontal {
+    align-items: center;
 
-.do-bulma {
-  @import "fields";
-  @import "pretty-checkbox";
-  @import "vue-select";
+    &.is-aligned-top {
+      align-items: flex-start;
+    }
 
-  .container {
-    width: 100%;
+    + .control {
+      margin-top: .5rem;
+    }
+  }
+
+  label {
+    @include sailec-medium;
+
+    color: $dark-blue;
+    font-size: 1rem;
+
+    &.text {
+      border-radius: $border-radius;
+      color: $dark-grey;
+      display: inline-block;
+      font-size: 14px;
+      padding: 0 .5rem;
+    }
+  }
+}
+
+.field-body {
+  &.is-vertical {
+    flex-direction: column;
+
+    > .field {
+      &:not(:last-child) {
+        margin-bottom: .75rem;
+      }
+    }
   }
 }
