@@ -24,7 +24,7 @@ limitations under the License.
                 <div class="column is-half is-full-touch">
                     <article v-if="error" class="message is-danger">
                         <div class="message-header">
-                            <p>Error</p>
+                            <p>{{ i18n.templates.app.error }}</p>
                         </div>
                         <div class="message-body">
                             {{ error }}
@@ -32,7 +32,7 @@ limitations under the License.
                     </article>
                     <article v-if="warn" class="message is-warning">
                         <div class="message-header">
-                            <p>Warning</p>
+                            <p>{{ warn.length === 1 ? i18n.templates.app.warning : i18n.templates.app.warnings }}</p>
                         </div>
                         <div class="message-body">
                             <ul v-for="warning in warn">
@@ -58,7 +58,7 @@ limitations under the License.
     import terser from 'terser';
     import Config from './config';
 
-    module.exports = {
+    export default {
         name: 'App',
         components: {
             Config,
@@ -75,6 +75,17 @@ limitations under the License.
                 config: Config.delegated,
             };
         },
+        watch: {
+            input() {
+                this.generate();
+            },
+            config: {
+                handler() {
+                    this.generate();
+                },
+                deep: true,
+            },
+        },
         methods: {
             generate() {
                 const options = {
@@ -87,17 +98,6 @@ limitations under the License.
                 this.$data.warn = result.warnings;
                 this.$data.output = result.code;
                 this.$data.map = result.map;
-            },
-        },
-        watch: {
-            input() {
-                this.generate();
-            },
-            config: {
-                handler() {
-                    this.generate();
-                },
-                deep: true,
             },
         },
     };
