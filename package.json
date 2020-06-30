@@ -9,7 +9,7 @@
     "build:template": "do-vue template",
     "build:static": "copyfiles --up 2 ./src/static/{*,**/*} dist",
     "build:tool": "do-vue tool src/minify-tool dist --scope-hoisting",
-    "dev": "npm run dev:prep && parcel ./src/minify-tool/index.html --out-dir ./dev --port 8000",
+    "dev": "npm run dev:prep && parcel ./src/minify-tool/index.html --out-dir ./dev --port 8000 --no-source-maps",
     "deploy:spaces:comment": "do-vue comment minify-tool",
     "dev:prep": "npm run build:template && npm run dev:static",
     "dev:static": "copyfiles --up 2 ./src/static/{*,**/*} dev",
@@ -37,6 +37,7 @@
     "do-vue": "git+https://github.com/do-community/do-vue.git",
     "parcel-bundler": "^1.12.4",
     "pretty-checkbox-vue": "^1.1.9",
+    "terser": "^4.8.0",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },

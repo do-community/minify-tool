@@ -21,4 +21,8 @@ $header: #0071fe;
   $pretty--color-dark: $primary;
   $pretty--color-default: $primary;
   @import "~pretty-checkbox/src/pretty-checkbox";
+
+  .container {
+    width: 100%;
+  }
 }

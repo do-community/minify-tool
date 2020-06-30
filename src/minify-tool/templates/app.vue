@@ -17,7 +17,34 @@ limitations under the License.
 <template>
     <div class="all do-bulma">
         <div class="container">
+            <div class="columns">
+                <div class="column is-half is-full-touch">
+                    <textarea v-model.lazy="input"></textarea>
+                </div>
+                <div class="column is-half is-full-touch">
+                    <article v-if="error" class="message is-danger">
+                        <div class="message-header">
+                            <p>Error</p>
+                        </div>
+                        <div class="message-body">
+                            {{ error }}
+                        </div>
+                    </article>
+                    <article v-if="warn" class="message is-warning">
+                        <div class="message-header">
+                            <p>Warning</p>
+                        </div>
+                        <div class="message-body">
+                            <ul v-for="warning in warn">
+                                <li>{{ warning }}</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <textarea v-text="output" readonly></textarea>
+                </div>
+            </div>
 
+            <Config :config="config"></Config>
         </div>
 
         <Footer :text="i18n.templates.app.oss"></Footer>
@@ -27,16 +54,47 @@ limitations under the License.
 <script>
     import i18n from '../i18n';
     import Footer from 'do-vue/src/templates/footer';
+    import terser from 'terser';
+    import Config from './config';
 
     module.exports = {
         name: 'App',
         components: {
+            Config,
             Footer,
         },
         data() {
             return {
                 i18n,
+                input: '',
+                error: '',
+                warn: '',
+                output: '',
+                config: Config.delegated,
             };
+        },
+        methods: {
+            generate() {
+                const options = {
+                    ...this.$data.config,
+                    warnings: 'verbose',
+                };
+                const result = terser.minify(this.$data.input, options);
+                this.$data.error = result.error;
+                this.$data.warn = result.warnings;
+                this.$data.output = result.code;
+            },
+        },
+        watch: {
+            input() {
+                this.generate();
+            },
+            config: {
+                handler() {
+                    this.generate();
+                },
+                deep: true,
+            },
         },
     };
 </script>
