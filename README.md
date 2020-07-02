@@ -8,8 +8,6 @@ A web tool for the DigitalOcean Community to quickly minify JavaScript files.
 
  - Header component (do-vue/src/templates/header)
  - Better UI/UX for input/output/map/errors/warnings
- - DO Spaces deployment workflow (have locally, needs secrets)
- - GitHub Pages deployment workflow (have locally, needs secrets)
  - Move to do-community
 
 ## Development/Building
