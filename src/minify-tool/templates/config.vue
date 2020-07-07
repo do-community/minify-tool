@@ -16,9 +16,21 @@ limitations under the License.
 
 <template>
     <div>
-        <a class="button is-primary" @click="preset('terser')">Terser Defaults</a>
-        <a class="button is-primary" @click="preset('compress')">Compression</a>
-        <a class="button is-primary" @click="preset('safe-compress')">Safe Compression</a>
+        <h4>Config Presets</h4>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <a class="button is-primary" @click="preset('terser')">Terser Defaults</a>
+            </div>
+            <div class="control">
+                <a class="button is-primary" @click="preset('compress')">Compression</a>
+            </div>
+            <div class="control">
+                <a class="button is-primary" @click="preset('safe-compress')">Safe Compression</a>
+            </div>
+        </div>
+
+        <h4>Terser Config</h4>
 
         <CompressConfig :config="config"></CompressConfig>
         <MangleConfig :config="config"></MangleConfig>
