@@ -38,6 +38,14 @@ $header: #0071fe;
 
   .container {
     width: 100%;
+
+    .columns {
+      .column {
+        &:first-child {
+          margin-top: 5.7rem;
+        }
+      }
+    }
   }
 
   textarea {
