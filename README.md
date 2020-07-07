@@ -8,8 +8,8 @@ A web tool for the DigitalOcean Community to quickly minify JavaScript files.
 
  - ~~Set fixed height for input & outputs (code & map)~~
     - ~~Probably use `max-height`, ensure Community auto-resizing doesn't run~~
- - Use tabs for error/warnings/code/map
-    - Use watchers on error/warnings/map, default to code if active tab is now null
+ - ~~Use tabs for error/warnings/code/map~~
+    - ~~Use watchers on error/warnings/map, default to code if active tab is now null~~
  - Provide quick preset buttons
     - Terser default (current settings)
     - Compress (enable compression but use defaults)

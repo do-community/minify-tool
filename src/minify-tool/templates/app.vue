@@ -23,7 +23,24 @@ limitations under the License.
                     <textarea v-model.lazy="input" class="code"></textarea>
                 </div>
                 <div class="column is-half is-full-touch">
-                    <article v-if="error" class="message is-danger">
+                    <div class="tabs">
+                        <ul>
+                            <li v-if="error" :class="tab === 'errors' ? 'is-active' : ''" @click="tab = 'errors'">
+                                <a>Errors</a>
+                            </li>
+                            <li v-if="warn" :class="tab === 'warnings' ? 'is-active' : ''" @click="tab = 'warnings'">
+                                <a>Warnings</a>
+                            </li>
+                            <li :class="tab === 'output' ? 'is-active' : ''" @click="tab = 'output'">
+                                <a>Output JavaScript</a>
+                            </li>
+                            <li v-if="map" :class="tab === 'map' ? 'is-active' : ''" @click="tab = 'map'">
+                                <a>Source Map</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <article v-if="tab === 'errors'" class="message is-danger">
                         <div class="message-header">
                             <p>{{ i18n.templates.app.error }}</p>
                         </div>
@@ -31,7 +48,8 @@ limitations under the License.
                             {{ error }}
                         </div>
                     </article>
-                    <article v-if="warn" class="message is-warning">
+
+                    <article v-if="tab === 'warnings'" class="message is-warning">
                         <div class="message-header">
                             <p>{{ warn.length === 1 ? i18n.templates.app.warning : i18n.templates.app.warnings }}</p>
                         </div>
@@ -41,9 +59,16 @@ limitations under the License.
                             </ul>
                         </div>
                     </article>
-                    <h3>Minified Output JavaScript</h3>
-                    <textarea readonly v-text="output" class="code"></textarea>
-                    <textarea v-if="map" readonly v-text="map" class="code"></textarea>
+
+                    <template v-if="tab === 'output'">
+                        <h3>Output JavaScript</h3>
+                        <textarea readonly class="code" v-text="output"></textarea>
+                    </template>
+
+                    <template v-if="tab === 'map'">
+                        <h3>Generated Source Map</h3>
+                        <textarea readonly class="code" v-text="map"></textarea>
+                    </template>
                 </div>
             </div>
 
@@ -69,7 +94,8 @@ limitations under the License.
         data() {
             return {
                 i18n,
-                input: '',
+                input: 'const test = (paramOne, paramTwo) => console.log(paramOne, paramTwo);',
+                tab: 'output',
                 error: '',
                 warn: '',
                 output: '',
@@ -86,6 +112,32 @@ limitations under the License.
                     this.generate();
                 },
                 deep: true,
+            },
+            error(data) {
+                // If no error, and we're on this tab, we need to not be on this tab
+                if (!data && this.$data.tab === 'errors') {
+                    this.$data.tab = 'output';
+                    return;
+                }
+
+                // If we have a new error, jump to it to be annoying
+                if (data) {
+                    this.$data.tab = 'errors';
+                }
+            },
+            warn(data) {
+                // If no warnings, and we're on this tab, we need to not be on this tab
+                if (!data && this.$data.tab === 'warnings') {
+                    this.$data.tab = 'output';
+                }
+
+                // We don't jump to this tab if there are warnings, they aren't as important
+            },
+            map(data) {
+                // If no source map generated, and we're on this tab, we need to not be on this tab
+                if (!data && this.$data.tab === 'map') {
+                    this.$data.tab = 'output';
+                }
             },
         },
         methods: {
