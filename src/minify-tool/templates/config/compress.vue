@@ -199,6 +199,18 @@ limitations under the License.
                 },
                 deep: true,
             },
+            config: {
+                handler(data) {
+                    if (data.compress === false) {
+                        this.$data.compressBool = false;
+                        return;
+                    }
+
+                    this.$data.compressBool = true;
+                    this.$data.compressOpts = data.compress;
+                },
+                deep: true,
+            },
         },
         created() {
             this.setCompress();

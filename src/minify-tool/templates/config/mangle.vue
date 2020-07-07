@@ -162,6 +162,18 @@ limitations under the License.
                 },
                 deep: true,
             },
+            config: {
+                handler(data) {
+                    if (data.mangle === false) {
+                        this.$data.mangleBool = false;
+                        return;
+                    }
+
+                    this.$data.mangleBool = true;
+                    this.$data.mangleOpts = data.mangle;
+                },
+                deep: true,
+            },
         },
         created() {
             this.setMangle();

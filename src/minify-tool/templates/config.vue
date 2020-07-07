@@ -16,6 +16,10 @@ limitations under the License.
 
 <template>
     <div>
+        <a class="button is-primary" @click="preset('terser')">Terser Defaults</a>
+        <a class="button is-primary" @click="preset('compress')">Compression</a>
+        <a class="button is-primary" @click="preset('safe-compress')">Safe Compression</a>
+
         <CompressConfig :config="config"></CompressConfig>
         <MangleConfig :config="config"></MangleConfig>
 
@@ -127,6 +131,70 @@ limitations under the License.
                     filename: this.$data.filename,
                     url: `${this.$data.filename}.map`,
                 } : false;
+            },
+            preset(opt) {
+                // Both of these use default settings for mangle
+                if (opt === 'terser' || opt === 'compress') {
+                    // Mirrors defaults from templates/config/mangle.vue
+                    this.$props.config.mangle = {
+                        eval: false,
+                        keep_classnames: false,
+                        keep_fnames: false,
+                        toplevel: false,
+                        safari10: false,
+                    };
+
+                    this.$props.config.output = {
+                        comments: 'some',
+                    };
+                }
+
+                // Apply preset specifics
+                switch (opt) {
+                case 'terser': {
+                    this.$props.config.compress = false;
+                    break;
+                }
+
+                case 'compress': {
+                    // Mirrors defaults from templates/config/compress.vue
+                    this.$props.config.compress = {
+                        dead_code: true,
+                        drop_console: false,
+                        drop_debugger: true,
+                        keep_classnames: false,
+                        keep_fargs: true,
+                        keep_fnames: false,
+                        keep_infinity: false,
+                    };
+                    break;
+                }
+
+                case 'safe-compress': {
+                    this.$props.config.compress = {
+                        dead_code: true,
+                        drop_console: false,
+                        drop_debugger: false, // Do we want to drop debugger still?
+                        keep_classnames: true,
+                        keep_fargs: true,
+                        keep_fnames: true,
+                        keep_infinity: true,
+                    };
+
+                    this.$props.config.mangle = {
+                        eval: false,
+                        keep_classnames: true,
+                        keep_fnames: true,
+                        toplevel: false,
+                        safari10: false,
+                    };
+
+                    this.$props.config.output = {
+                        comments: true,
+                    };
+                    break;
+                }
+                }
             },
         },
     };

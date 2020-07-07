@@ -10,10 +10,10 @@ A web tool for the DigitalOcean Community to quickly minify JavaScript files.
     - ~~Probably use `max-height`, ensure Community auto-resizing doesn't run~~
  - ~~Use tabs for error/warnings/code/map~~
     - ~~Use watchers on error/warnings/map, default to code if active tab is now null~~
- - Provide quick preset buttons
-    - Terser default (current settings)
-    - Compress (enable compression but use defaults)
-    - Safe compress (enable keep* in compress & mangle)
+ - ~~Provide quick preset buttons~~
+    - ~~Terser default (current settings)~~
+    - ~~Compress (enable compression but use defaults)~~
+    - ~~Safe compress (enable keep* in compress & mangle)~~
  - Header component (`do-vue/src/templates/header`)
     - Compress button
     - Toggle switch for live compression (remove current `.lazy` on input)
