@@ -17,10 +17,25 @@ limitations under the License.
 <template>
     <div class="all do-bulma">
         <div class="container">
+            <Header :title="i18n.templates.app.title">
+                <template v-slot:description>
+                    {{ i18n.templates.app.description }}
+                </template>
+                <template v-slot:input>
+                    <PrettyCheck v-model="liveCompress" class="p-default p-curve p-fill p-icon">
+                        <i slot="extra" class="icon fas fa-check"></i>
+                        Enable live compression as you type
+                    </PrettyCheck>
+                </template>
+                <template v-slot:buttons>
+                    <!-- TODO: Compress on-demand button -->
+                </template>
+            </Header>
+
             <div class="columns">
                 <div class="column is-half is-full-touch">
                     <h3>Input JavaScript</h3>
-                    <textarea v-model.lazy="input" class="code"></textarea>
+                    <textarea v-model="input" class="code"></textarea>
                 </div>
                 <div class="column is-half is-full-touch">
                     <div class="tabs">
@@ -81,19 +96,24 @@ limitations under the License.
 
 <script>
     import i18n from '../i18n';
+    import Header from 'do-vue/src/templates/header';
     import Footer from 'do-vue/src/templates/footer';
+    import PrettyCheck from 'pretty-checkbox-vue/check';
     import terser from 'terser';
     import Config from './config';
 
     export default {
         name: 'App',
         components: {
+            Header,
+            PrettyCheck,
             Config,
             Footer,
         },
         data() {
             return {
                 i18n,
+                liveCompress: true,
                 input: 'const test = (paramOne, paramTwo) => console.log(paramOne, paramTwo);',
                 tab: 'output',
                 error: '',
@@ -105,7 +125,7 @@ limitations under the License.
         },
         watch: {
             input() {
-                this.generate();
+                if (this.$data.liveCompress) this.generate();
             },
             config: {
                 handler() {
