@@ -19,7 +19,8 @@ limitations under the License.
         <div class="container">
             <div class="columns">
                 <div class="column is-half is-full-touch">
-                    <textarea v-model.lazy="input"></textarea>
+                    <h3>Input JavaScript</h3>
+                    <textarea v-model.lazy="input" class="code"></textarea>
                 </div>
                 <div class="column is-half is-full-touch">
                     <article v-if="error" class="message is-danger">
@@ -40,8 +41,9 @@ limitations under the License.
                             </ul>
                         </div>
                     </article>
-                    <textarea readonly v-text="output"></textarea>
-                    <textarea v-if="map" readonly v-text="map"></textarea>
+                    <h3>Minified Output JavaScript</h3>
+                    <textarea readonly v-text="output" class="code"></textarea>
+                    <textarea v-if="map" readonly v-text="map" class="code"></textarea>
                 </div>
             </div>
 

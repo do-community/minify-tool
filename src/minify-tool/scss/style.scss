@@ -25,4 +25,12 @@ $header: #0071fe;
   .container {
     width: 100%;
   }
+
+  textarea {
+    &.code {
+      height: 50vh;
+      max-height: 50vh;
+      min-height: 50vh;
+    }
+  }
 }
