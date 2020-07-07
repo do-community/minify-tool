@@ -22,10 +22,12 @@ limitations under the License.
                     {{ i18n.templates.app.description }}
                 </template>
                 <template v-slot:input>
-                    <PrettyCheck v-model="liveCompress" class="p-default p-curve p-fill p-icon">
-                        <i slot="extra" class="icon fas fa-check"></i>
-                        {{ i18n.templates.app.liveCompression }}
-                    </PrettyCheck>
+                    <div class="checkbox">
+                        <PrettyCheck v-model="liveCompress" class="p-default p-curve p-fill p-icon">
+                            <i slot="extra" class="icon fas fa-check"></i>
+                            {{ i18n.templates.app.liveCompression }}
+                        </PrettyCheck>
+                    </div>
                 </template>
                 <template v-slot:buttons>
                     <a class="button is-primary" @click="generate">{{ i18n.templates.app.compress }}</a>

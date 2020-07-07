@@ -22,6 +22,20 @@ $header: #0071fe;
   @import "pretty-checkbox";
   @import "vue-select";
 
+  .header {
+    .checkbox {
+      .pretty {
+        &.p-icon {
+          .state {
+            label {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .container {
     width: 100%;
   }

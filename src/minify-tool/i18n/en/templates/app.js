@@ -1,6 +1,6 @@
 export default {
     title: 'Minify Tool',
-    description: '',
+    description: 'A web tool for the DigitalOcean Community to quickly minify JavaScript files.',
     liveCompression: 'Enable live compression as you type',
     compress: 'Compress Code',
     input: 'Input JavaScript',
