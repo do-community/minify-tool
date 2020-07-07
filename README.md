@@ -14,9 +14,9 @@ A web tool for the DigitalOcean Community to quickly minify JavaScript files.
     - ~~Terser default (current settings)~~
     - ~~Compress (enable compression but use defaults)~~
     - ~~Safe compress (enable keep* in compress & mangle)~~
- - Header component (`do-vue/src/templates/header`)
-    - Compress button
-    - Toggle switch for live compression (remove current `.lazy` on input)
+ - ~~Header component (`do-vue/src/templates/header`)~~
+    - ~~Compress button~~
+    - ~~Toggle switch for live compression (remove current `.lazy` on input)~~
  - Move to do-community
 
 ## Development/Building

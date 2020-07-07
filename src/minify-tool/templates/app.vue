@@ -24,40 +24,40 @@ limitations under the License.
                 <template v-slot:input>
                     <PrettyCheck v-model="liveCompress" class="p-default p-curve p-fill p-icon">
                         <i slot="extra" class="icon fas fa-check"></i>
-                        Enable live compression as you type
+                        {{ i18n.templates.app.liveCompression }}
                     </PrettyCheck>
                 </template>
                 <template v-slot:buttons>
-                    <!-- TODO: Compress on-demand button -->
+                    <a class="button is-primary" @click="generate">{{ i18n.templates.app.compress }}</a>
                 </template>
             </Header>
 
             <div class="columns">
                 <div class="column is-half is-full-touch">
-                    <h3>Input JavaScript</h3>
+                    <h3>{{ i18n.templates.app.input }}</h3>
                     <textarea v-model="input" class="code"></textarea>
                 </div>
                 <div class="column is-half is-full-touch">
                     <div class="tabs">
                         <ul>
                             <li v-if="error" :class="tab === 'errors' ? 'is-active' : ''" @click="tab = 'errors'">
-                                <a>Errors</a>
+                                <a>{{ i18n.templates.app.errors }}</a>
                             </li>
                             <li v-if="warn" :class="tab === 'warnings' ? 'is-active' : ''" @click="tab = 'warnings'">
-                                <a>Warnings</a>
+                                <a>{{ i18n.templates.app.warnings }}</a>
                             </li>
                             <li :class="tab === 'output' ? 'is-active' : ''" @click="tab = 'output'">
-                                <a>Output JavaScript</a>
+                                <a>{{ i18n.templates.app.output }}</a>
                             </li>
                             <li v-if="map" :class="tab === 'map' ? 'is-active' : ''" @click="tab = 'map'">
-                                <a>Source Map</a>
+                                <a>{{ i18n.templates.app.map }}</a>
                             </li>
                         </ul>
                     </div>
 
                     <article v-if="tab === 'errors'" class="message is-danger">
                         <div class="message-header">
-                            <p>{{ i18n.templates.app.error }}</p>
+                            <p>{{ i18n.templates.app.errorMsg }}</p>
                         </div>
                         <div class="message-body">
                             {{ error }}
@@ -66,7 +66,9 @@ limitations under the License.
 
                     <article v-if="tab === 'warnings'" class="message is-warning">
                         <div class="message-header">
-                            <p>{{ warn.length === 1 ? i18n.templates.app.warning : i18n.templates.app.warnings }}</p>
+                            <p>
+                                {{ warn.length === 1 ? i18n.templates.app.warningMsg : i18n.templates.app.warningsMsg }}
+                            </p>
                         </div>
                         <div class="message-body">
                             <ul v-for="warning in warn">
@@ -76,12 +78,12 @@ limitations under the License.
                     </article>
 
                     <template v-if="tab === 'output'">
-                        <h3>Output JavaScript</h3>
+                        <h3>{{ i18n.templates.app.output }}</h3>
                         <textarea readonly class="code" v-text="output"></textarea>
                     </template>
 
                     <template v-if="tab === 'map'">
-                        <h3>Generated Source Map</h3>
+                        <h3>{{ i18n.templates.app.mapTitle }}</h3>
                         <textarea readonly class="code" v-text="map"></textarea>
                     </template>
                 </div>
