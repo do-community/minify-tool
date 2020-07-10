@@ -16,8 +16,11 @@ limitations under the License.
 
 import 'babel-polyfill';
 import Vue from 'vue';
+import VueTippy from 'vue-tippy';
 import App from './templates/app.vue';
 import i18n from './i18n';
+
+Vue.use(VueTippy);
 
 document.head.title = i18n.templates.app.title;
 

@@ -104,6 +104,7 @@ limitations under the License.
     import PrettyCheck from 'pretty-checkbox-vue/check';
     import terser from 'terser';
     import Config from './config';
+    import exampleCode from '../data/example_code';
 
     export default {
         name: 'App',
@@ -117,7 +118,7 @@ limitations under the License.
             return {
                 i18n,
                 liveCompress: true,
-                input: 'const test = (paramOne, paramTwo) => console.log(paramOne, paramTwo);',
+                input: exampleCode,
                 tab: 'output',
                 error: '',
                 warn: '',

@@ -20,13 +20,25 @@ limitations under the License.
 
         <div class="field is-grouped presets">
             <div class="control">
-                <a class="button is-primary" @click="preset('terser')">Terser Defaults</a>
+                <a v-tippy
+                   class="button is-primary"
+                   :content="i18n.templates.config.terserDefaultsPreset"
+                   @click="preset('terser')"
+                >Terser Defaults</a>
             </div>
             <div class="control">
-                <a class="button is-primary" @click="preset('compress')">Compression</a>
+                <a v-tippy
+                   class="button is-primary"
+                   :content="i18n.templates.config.compressionPreset"
+                   @click="preset('compress')"
+                >Compression</a>
             </div>
             <div class="control">
-                <a class="button is-primary" @click="preset('safe-compress')">Safe Compression</a>
+                <a v-tippy
+                   class="button is-primary"
+                   :content="i18n.templates.config.safeCompressionPreset"
+                   @click="preset('safe-compress')"
+                >Safe Compression</a>
             </div>
         </div>
 
