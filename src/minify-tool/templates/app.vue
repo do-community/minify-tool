@@ -35,7 +35,8 @@ limitations under the License.
                     </div>
 
                     <h3>{{ i18n.templates.app.input }}</h3>
-                    <textarea v-model="input" class="code"></textarea>
+                    <VuePrismEditor v-model="input" language="js"></VuePrismEditor>
+                    <!-- FIXME: The editing experience with this is rather awful -->
                 </div>
 
                 <div class="column is-half is-full-touch">
@@ -80,12 +81,12 @@ limitations under the License.
 
                     <template v-if="tab === 'output'">
                         <h3>{{ i18n.templates.app.output }}</h3>
-                        <textarea readonly class="code" v-text="output"></textarea>
+                        <Output :key="output" :code="output"></Output>
                     </template>
 
                     <template v-if="tab === 'map'">
                         <h3>{{ i18n.templates.app.mapTitle }}</h3>
-                        <textarea readonly class="code" v-text="map"></textarea>
+                        <SourceMap :key="map" :code="map"></SourceMap>
                     </template>
                 </div>
             </div>
@@ -99,10 +100,13 @@ limitations under the License.
 
 <script>
     import i18n from '../i18n';
+    import VuePrismEditor from 'vue-prism-editor';
     import Header from 'do-vue/src/templates/header';
     import Footer from 'do-vue/src/templates/footer';
     import PrettyCheck from 'pretty-checkbox-vue/check';
     import terser from 'terser';
+    import Output from './output';
+    import SourceMap from './sourcemap';
     import Config from './config';
     import exampleCode from '../data/example_code';
 
@@ -111,6 +115,9 @@ limitations under the License.
         components: {
             Header,
             PrettyCheck,
+            VuePrismEditor,
+            Output,
+            SourceMap,
             Config,
             Footer,
         },
