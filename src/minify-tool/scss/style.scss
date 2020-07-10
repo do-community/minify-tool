@@ -16,6 +16,7 @@ limitations under the License.
 
 $header: #0071fe;
 @import "~do-bulma/src/style";
+@import "~bulma/sass/utilities/initial-variables";
 
 .do-bulma {
   @import "fields";
@@ -23,6 +24,8 @@ $header: #0071fe;
   @import "vue-select";
 
   .header {
+    padding: ($margin * 3.75) 0 0;
+
     .checkbox {
       .pretty {
         &.p-icon {
@@ -38,14 +41,6 @@ $header: #0071fe;
 
   .container {
     width: 100%;
-
-    .columns {
-      .column {
-        &:first-child {
-          margin-top: 5.7rem;
-        }
-      }
-    }
   }
 
   textarea {
@@ -53,6 +48,52 @@ $header: #0071fe;
       height: 50vh;
       max-height: 50vh;
       min-height: 50vh;
+    }
+  }
+
+  .actions,
+  .tabs {
+    height: $margin * 4;
+
+    @media screen and (max-width: $desktop - 1px) {
+      height: auto;
+    }
+  }
+
+  .tabs {
+    ul {
+      align-items: flex-end;
+    }
+  }
+
+  .actions {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: $desktop - 1px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .checkbox {
+      margin: 0 0 0 auto;
+
+      @media screen and (max-width: $desktop - 1px) {
+        margin: .75rem .25rem;
+      }
+    }
+  }
+
+  .presets {
+    .control {
+      &:first-child {
+        margin-left: 10%;
+
+        @media screen and (max-width: $desktop - 1px) {
+          margin-left: 0;
+        }
+      }
     }
   }
 }

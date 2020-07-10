@@ -18,7 +18,7 @@ limitations under the License.
     <div>
         <h4>Config Presets</h4>
 
-        <div class="field is-grouped">
+        <div class="field is-grouped presets">
             <div class="control">
                 <a class="button is-primary" @click="preset('terser')">Terser Defaults</a>
             </div>
