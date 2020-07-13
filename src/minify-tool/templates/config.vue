@@ -15,7 +15,7 @@ limitations under the License.
 -->
 
 <template>
-    <div>
+    <div class="config">
         <h4>Config Presets</h4>
 
         <div class="field is-grouped presets">
@@ -146,8 +146,9 @@ limitations under the License.
                 this.setSourceMap();
             },
         },
-        created() {
-            this.setSourceMap();
+        mounted() {
+            // Once we're mounted and the watchers are ready, use the compression preset
+            this.preset('compress');
         },
         methods: {
             setSourceMap() {

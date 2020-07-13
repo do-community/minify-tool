@@ -186,12 +186,10 @@ limitations under the License.
         },
         methods: {
             generate() {
-                const options = {
+                const result = terser.minify(this.$data.input, {
                     ...this.$data.config,
                     warnings: 'verbose',
-                };
-                console.log(options);
-                const result = terser.minify(this.$data.input, options);
+                });
                 this.$data.error = result.error;
                 this.$data.warn = result.warnings;
                 this.$data.output = result.code;

@@ -81,13 +81,17 @@ $header: #0071fe;
     }
   }
 
-  .presets {
-    .control {
-      &:first-child {
-        margin-left: 10%;
+  .config {
+    margin: 1.5rem 0 0;
 
-        @media screen and (max-width: $desktop - 1px) {
-          margin-left: 0;
+    .presets {
+      .control {
+        &:first-child {
+          margin-left: 10%;
+
+          @media screen and (max-width: $desktop - 1px) {
+            margin-left: 0;
+          }
         }
       }
     }
