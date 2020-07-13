@@ -35,8 +35,9 @@ limitations under the License.
                     </div>
 
                     <h3>{{ i18n.templates.app.input }}</h3>
-                    <VuePrismEditor v-model="input" language="js"></VuePrismEditor>
-                    <!-- FIXME: The editing experience with this is rather awful -->
+                    <div class="editor">
+                        <PrismEditor v-model="input" :highlight="highlighter"></PrismEditor>
+                    </div>
                 </div>
 
                 <div class="column is-half is-full-touch">
@@ -99,15 +100,27 @@ limitations under the License.
 </template>
 
 <script>
-    import i18n from '../i18n';
-    import VuePrismEditor from 'vue-prism-editor';
+    // All the Prism highlighting for the input
+    import { PrismEditor } from 'vue-prism-editor';
+    import { highlight, languages } from 'prismjs/components/prism-core';
+    import 'prismjs/components/prism-clike';
+    import 'prismjs/components/prism-javascript';
+
+    // Other package components we need
     import Header from 'do-vue/src/templates/header';
     import Footer from 'do-vue/src/templates/footer';
     import PrettyCheck from 'pretty-checkbox-vue/check';
+
+    // Terser! The core of this tool
     import terser from 'terser';
+
+    // Local components we need
     import Output from './output';
     import SourceMap from './sourcemap';
     import Config from './config';
+
+    // Local data that we need
+    import i18n from '../i18n';
     import exampleCode from '../data/example_code';
 
     export default {
@@ -115,7 +128,7 @@ limitations under the License.
         components: {
             Header,
             PrettyCheck,
-            VuePrismEditor,
+            PrismEditor,
             Output,
             SourceMap,
             Config,
@@ -183,6 +196,9 @@ limitations under the License.
                 this.$data.warn = result.warnings;
                 this.$data.output = result.code;
                 this.$data.map = result.map;
+            },
+            highlighter(code) {
+                return highlight(code, languages.js);
             },
         },
     };

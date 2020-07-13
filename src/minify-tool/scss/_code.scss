@@ -14,53 +14,40 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Prism itself (output)
 pre {
   &[class*="language-"] {
     padding: .5rem 1rem;
 
-    &[contenteditable="true"] {
-      background: $input;
-    }
-
     code {
       &[class*="language-"] {
-        &,
-        .token {
-          font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-          font-size: 13.6px;
-          font-weight: normal;
-          line-height: 1.4em;
-        }
-
-        // Soft-wrap each line
-        .token {
-          white-space: normal;
-          word-wrap: anywhere;
-          word-break: break-all;
-        }
-
-        // Fix Bulma & DO Prism styles interfering with default Prism
-        .token {
-          &.number,
-          &.tag,
-          &.entity,
-          &.operator,
-          &.url {
-            background: transparent;
-            border-radius: initial;
-            display: initial;
-            font-size: inherit;
-            margin: initial;
-            padding: initial;
-            text-align: initial;
-            vertical-align: initial;
-          }
-        }
+        @import "prism/prism-fix";
       }
     }
   }
 }
 
+// vue-prism-editor (input)
+.editor {
+  border: $thin-border;
+  border-radius: $border-radius;
+  padding: .5rem 1rem;
+
+  // sass-lint:disable-block class-name-format
+  .prism-editor-wrapper {
+    .prism-editor__container {
+      .prism-editor__textarea {
+        @import "prism/font-fix";
+      }
+
+      .prism-editor__editor {
+        @import "prism/prism-fix";
+      }
+    }
+  }
+}
+
+// Toolbar on output
 .code-toolbar {
   > .toolbar {
     right: calc(.2em + 16px);
