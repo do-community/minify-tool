@@ -8,7 +8,7 @@ export default {
     module: 'Module',
     moduleDesc: 'Enable if you are minifying an ES6 module',
     filename: 'File name',
-    filenameDesc: 'Provide a file name for your script to enable source map generation',
+    filenameDesc: 'Provide a filename for your output script to enable source map generation',
     comments: 'Comments',
     commentsRemove: 'Remove all comments',
     commentsPreserve: 'Preserve JSDoc @preserve and @license comments',

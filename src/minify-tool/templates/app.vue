@@ -93,6 +93,7 @@ limitations under the License.
             </div>
 
             <Config :config="config"></Config>
+            <Explainer :config="config"></Explainer>
         </div>
 
         <Footer :text="i18n.templates.app.oss"></Footer>
@@ -106,10 +107,11 @@ limitations under the License.
     import 'prismjs/components/prism-clike';
     import 'prismjs/components/prism-javascript';
 
-    // Other package components we need
+    // Other packages we need
     import Header from 'do-vue/src/templates/header';
     import Footer from 'do-vue/src/templates/footer';
     import PrettyCheck from 'pretty-checkbox-vue/check';
+    import clone from 'clone';
 
     // Terser! The core of this tool
     import terser from 'terser';
@@ -118,6 +120,7 @@ limitations under the License.
     import Output from './output';
     import SourceMap from './sourcemap';
     import Config from './config';
+    import Explainer from './explainer';
 
     // Local data that we need
     import i18n from '../i18n';
@@ -132,6 +135,7 @@ limitations under the License.
             Output,
             SourceMap,
             Config,
+            Explainer,
             Footer,
         },
         data() {
@@ -187,7 +191,7 @@ limitations under the License.
         methods: {
             generate() {
                 const result = terser.minify(this.$data.input, {
-                    ...this.$data.config,
+                    ...clone(this.$data.config), // Use clone to avoid terser populating child objects
                     warnings: 'verbose',
                 });
                 this.$data.error = result.error;
