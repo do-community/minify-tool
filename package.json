@@ -25,7 +25,9 @@
     "url": "git+https://github.com/do-community/minify-tool.git"
   },
   "keywords": [
-    "minfiy"
+    "minfiy",
+    "javascript",
+    "terser"
   ],
   "author": "DigitalOcean",
   "bugs": {

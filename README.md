@@ -1,15 +1,8 @@
-# Minify Tool
+# JavaScript Minify Tool
 
 A web tool for the DigitalOcean Community to quickly minify JavaScript files.
 
 ---
-
-## TODO
-
- - Add new section below config with educational content
-   - Explain why minification is useful
-   - Explain the basics of using Terser in a production workflow
- - Move to do-community
 
 ## Development/Building
 
