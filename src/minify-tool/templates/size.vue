@@ -1,11 +1,17 @@
 <template>
     <div class="size">
-        <h4>Code Size</h4>
+        <h4>{{ i18n.templates.size.codeSize }}</h4>
         <div class="data">
-            <p>Before: <b>{{ prettyBytes(beforeSize) }}</b></p>
-            <p>After: <b>{{ prettyBytes(afterSize) }}</b></p>
             <p>
-                Saving:
+                {{ i18n.templates.size.before }}
+                <b>{{ prettyBytes(beforeSize) }}</b>
+            </p>
+            <p>
+                {{ i18n.templates.size.after }}
+                <b>{{ prettyBytes(afterSize) }}</b>
+            </p>
+            <p>
+                {{ i18n.templates.size.saving }}
                 <b :class="savingClass">
                     {{ savingPer.toLocaleString(undefined, { maximumFractionDigits: 2 }) }}% ({{ prettyBytes(saving) }})
                 </b>
@@ -15,6 +21,7 @@
 </template>
 
 <script>
+    import i18n from '../i18n';
     import getLength from 'utf8-byte-length';
     import prettyBytes from 'pretty-bytes';
 
@@ -23,6 +30,11 @@
         props: {
             before: String,
             after: String,
+        },
+        data() {
+            return {
+                i18n,
+            };
         },
         computed: {
             beforeSize() {
