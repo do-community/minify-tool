@@ -83,6 +83,7 @@ limitations under the License.
                     <template v-if="tab === 'output'">
                         <h3>{{ i18n.templates.app.output }}</h3>
                         <Output :key="output" :code="output"></Output>
+                        <Size :before="input" :after="output"></Size>
                     </template>
 
                     <template v-if="tab === 'map'">
@@ -118,6 +119,7 @@ limitations under the License.
 
     // Local components we need
     import Output from './output';
+    import Size from './size';
     import SourceMap from './sourcemap';
     import Config from './config';
     import Explainer from './explainer';
@@ -133,6 +135,7 @@ limitations under the License.
             PrettyCheck,
             PrismEditor,
             Output,
+            Size,
             SourceMap,
             Config,
             Explainer,

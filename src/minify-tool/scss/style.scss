@@ -81,6 +81,46 @@ $header: #0071fe;
     }
   }
 
+  .size {
+    h4 {
+      margin: 1.5rem 0 .5rem;
+    }
+
+    .data {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      p {
+        color: $text;
+        margin: .1rem 0 0;
+        padding: 0;
+
+        &:not(:first-child) {
+          border-left: 1px solid $dark-blue;
+          margin: .1rem 0 0 .5rem;
+          padding: 0 0 0 .5rem;
+        }
+
+        b {
+          color: $dark-blue;
+
+          &.has-text-success {
+            color: $secondary;
+          }
+
+          &.has-text-warning {
+            color: $warning;
+          }
+
+          &.has-text-danger {
+            color: $danger;
+          }
+        }
+      }
+    }
+  }
+
   .config {
     margin: 1.5rem 0 0;
 
