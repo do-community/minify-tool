@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 export default `// Import Terser so we can use it
-const Terser = require('terser');
+const { minify } = require('terser');
 
 // Import fs so we can read/write files
 const fs = require('fs');
@@ -27,6 +27,5 @@ const config = {{CONFIG}};
 // Load in your code to minify
 const code = fs.readFileSync('my_code.js', 'utf8');
 
-// Minify the code with Terser, raising any errors
-const minified = Terser.minify(code, config);
-if (minified.error) throw minified.error;`;
+// Minify the code with Terser
+const minified = await minify(code, config);`;
