@@ -18,7 +18,7 @@ limitations under the License.
     <div class="all do-bulma">
         <div class="container">
             <Header :title="i18n.templates.app.title">
-                <template v-slot:description>
+                <template #description>
                     {{ i18n.templates.app.description }}
                 </template>
             </Header>
@@ -115,7 +115,7 @@ limitations under the License.
     import clone from 'clone';
 
     // Terser! The core of this tool
-    import terser from 'terser';
+    import { minify } from 'terser';
 
     // Local components we need
     import Output from './output';
@@ -192,15 +192,22 @@ limitations under the License.
             },
         },
         methods: {
-            generate() {
-                const result = terser.minify(this.$data.input, {
-                    ...clone(this.$data.config), // Use clone to avoid terser populating child objects
-                    warnings: 'verbose',
-                });
-                this.$data.error = result.error;
-                this.$data.warn = result.warnings;
-                this.$data.output = result.code;
-                this.$data.map = result.map;
+            async generate() {
+                try {
+                    const result = await minify(this.$data.input, {
+                        ...clone(this.$data.config), // Use clone to avoid terser populating child objects
+                        warnings: 'verbose',
+                    });
+                    this.$data.error = null;
+                    this.$data.warn = result.warnings;
+                    this.$data.output = result.code;
+                    this.$data.map = result.map;
+                } catch (error) {
+                    this.$data.error = `Line ${error.line.toLocaleString()}: ${error.message}`;
+                    this.$data.warn = null;
+                    this.$data.output = '// Failed to generate';
+                    this.$data.map = null;
+                }
             },
             highlighter(code) {
                 return highlight(code, languages.js);
