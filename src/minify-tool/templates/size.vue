@@ -29,7 +29,7 @@ limitations under the License.
             <p>
                 {{ i18n.templates.size.saving }}
                 <b :class="savingClass">
-                    {{ savingPer.toLocaleString(undefined, { maximumFractionDigits: 2 }) }}% ({{ prettyBytes(saving) }})
+                    {{ (savingPer || 0).toLocaleString(undefined, { maximumFractionDigits: 2 }) }}% ({{ prettyBytes(saving) }})
                 </b>
             </p>
         </div>
