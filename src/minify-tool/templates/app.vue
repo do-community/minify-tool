@@ -18,7 +18,7 @@ limitations under the License.
     <div class="all do-bulma">
         <div class="container">
             <Header :title="i18n.templates.app.title">
-                <template v-slot:description>
+                <template #description>
                     {{ i18n.templates.app.description }}
                 </template>
             </Header>

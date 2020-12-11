@@ -55,7 +55,7 @@ limitations under the License.
                 <div class="field">
                     <div class="control">
                         <div class="checkbox">
-                            <PrettyCheck v-model="config.module" class="p-default p-curve p-fill p-icon">
+                            <PrettyCheck v-model="module" class="p-default p-curve p-fill p-icon">
                                 <i slot="extra" class="icon fas fa-check"></i>
                                 {{ i18n.templates.config.moduleDesc }}
                             </PrettyCheck>
@@ -91,7 +91,7 @@ limitations under the License.
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <VueSelect v-model="config.output.comments"
+                        <VueSelect v-model="comments"
                                    :options="commentsOptions"
                                    :clearable="false"
                                    :reduce="s => s.value"
@@ -140,6 +140,24 @@ limitations under the License.
                     { label: i18n.templates.config.commentsKeep, value: true },
                 ],
             };
+        },
+        computed: {
+            module: {
+                get() {
+                    return this.$props.config.module;
+                },
+                set(value) {
+                    this.$props.config.module = value;
+                },
+            },
+            comments: {
+                get() {
+                    return this.$props.config.output.comments;
+                },
+                set(value) {
+                    this.$props.config.output.comments = value;
+                },
+            },
         },
         watch: {
             filename() {
