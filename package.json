@@ -43,7 +43,7 @@
     "parcel-bundler": "^1.12.4",
     "pretty-bytes": "^5.4.1",
     "pretty-checkbox-vue": "^1.1.9",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.23.0",
     "stringify-object": "^3.3.0",
     "terser": "^5.5.1",
     "utf8-byte-length": "^1.0.4",
