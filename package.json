@@ -37,7 +37,7 @@
   "dependencies": {
     "clone": "^2.1.2",
     "do-bulma": "git+https://github.com/do-community/do-bulma.git",
-    "do-vue": "git+https://github.com/do-community/do-vue.git#7ba6df2241e36635a6137b873620f026ba45fe93",
+    "do-vue": "git+https://github.com/do-community/do-vue.git",
     "pretty-bytes": "^5.4.1",
     "pretty-checkbox-vue": "^1.1.9",
     "prismjs": "^1.22.0",
