@@ -14,11 +14,10 @@
     "dev:prep": "npm run build:template && npm run dev:static",
     "dev:static": "copyfiles --up 2 ./src/static/{*,**/*} dev",
     "test": "npm run test:eslint && npm run test:scss",
-    "test:fix": "npm run test:eslint:fix && npm run test:scss:fix",
+    "test:fix": "npm run test:eslint:fix",
     "test:eslint": "eslint 'src/**/*.{js,vue}'",
     "test:eslint:fix": "npm run test:eslint -- --fix",
-    "test:scss": "sass-lint ./src/**/*.scss --verbose --no-exit --config .sasslintrc",
-    "test:scss:fix": "sass-lint-auto-fix './src/**/*.scss'"
+    "test:scss": "sass-lint ./src/**/*.scss --verbose --no-exit --config .sasslintrc"
   },
   "repository": {
     "type": "git",
@@ -45,20 +44,18 @@
     "terser": "^5.6.1",
     "utf8-byte-length": "^1.0.4",
     "vue": "^2.6.12",
-    "vue-hot-reload-api": "^2.3.3",
     "vue-prism-editor": "^1.2.2",
     "vue-select": "^3.11.2",
     "vue-tippy": "^4.10.0"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
-    "eslint": "^7.23.0",
-    "eslint-plugin-vue": "^7.8.0",
-    "posthtml": "^0.15.1",
+    "eslint": "^7.24.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "posthtml": "^0.15.2",
     "posthtml-extend": "^0.6.0",
-    "sass": "^1.32.8",
-    "sass-lint": "^1.13.1",
-    "sass-lint-auto-fix": "^0.21.2",
+    "sass": "^1.32.11",
+    "sass-lint": "git+https://github.com/do-community/sass-lint.git",
     "vue-template-compiler": "^2.6.12"
   }
 }
