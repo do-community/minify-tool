@@ -17,7 +17,7 @@
     "test:fix": "npm run test:eslint:fix",
     "test:eslint": "eslint 'src/**/*.{js,vue}'",
     "test:eslint:fix": "npm run test:eslint -- --fix",
-    "test:scss": "sass-lint ./src/**/*.scss --verbose --no-exit --config .sasslintrc"
+    "test:scss": "stylelint ./src/**/*.scss --config node_modules/do-bulma/.stylelintrc.json"
   },
   "repository": {
     "type": "git",
@@ -55,7 +55,8 @@
     "posthtml": "^0.15.2",
     "posthtml-extend": "^0.6.0",
     "sass": "^1.32.11",
-    "sass-lint": "git+https://github.com/do-community/sass-lint.git",
+    "stylelint": "^13.13.1",
+    "stylelint-order": "^4.1.0",
     "vue-template-compiler": "^2.6.12"
   }
 }
