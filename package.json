@@ -39,7 +39,7 @@
     "do-vue": "git+https://github.com/do-community/do-vue.git",
     "pretty-bytes": "^5.6.0",
     "pretty-checkbox-vue": "^1.1.9",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.24.0",
     "stringify-object": "^3.3.0",
     "terser": "^5.6.1",
     "utf8-byte-length": "^1.0.4",
