@@ -1,5 +1,5 @@
 /*
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-/* stylelint-disable property-no-vendor-prefix */
+// stylelint-disable property-no-vendor-prefix, selector-class-pattern
 .prism-editor-wrapper {
   -moz-tab-size: 1.5em;
   align-items: flex-start;
@@ -104,3 +104,4 @@ limitations under the License.
     }
   }
 }
+// stylelint-enable property-no-vendor-prefix, selector-class-pattern

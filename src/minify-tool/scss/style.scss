@@ -1,5 +1,5 @@
 /*
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ limitations under the License.
 @import url("https://assets.digitalocean.com/prism/prism.css");
 
 $header: #0071fe;
+
 @import "~do-bulma/src/style";
 @import "~bulma/sass/utilities/initial-variables";
 
@@ -88,8 +89,7 @@ $header: #0071fe;
 
     .data {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-flow: row wrap;
 
       p {
         color: $text;

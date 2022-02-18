@@ -1,5 +1,5 @@
 /*
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,9 +18,10 @@ $vs-border-color: $border;
 $vs-border-radius: $border-radius;
 $vs-dropdown-box-shadow: 0 2px 4px rgba($dark-blue, .06);
 $vs-state-active-bg: $primary;
+
 @import "~vue-select/src/scss/vue-select";
 
-// sass-lint:disable class-name-format
+// stylelint-disable selector-class-pattern
 .v-select {
   &.vs--open {
     > ul {
@@ -38,7 +39,7 @@ $vs-state-active-bg: $primary;
   }
 
   > ul {
-    display: block !important; // sass-lint:disable-line no-important
+    display: block !important;
     margin: 0;
     opacity: 0;
     transition: opacity $transition;
@@ -76,4 +77,4 @@ $vs-state-active-bg: $primary;
     }
   }
 }
-// sass-lint:enable class-name-format
+// stylelint-enable selector-class-pattern
