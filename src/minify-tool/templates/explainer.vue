@@ -1,5 +1,5 @@
 <!--
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -18,14 +18,16 @@ limitations under the License.
     <div class="explainer">
         <h3>{{ i18n.templates.explainer.whyMinifyYourJavaScript }}</h3>
 
-        <p v-for="paragraph in i18n.templates.explainer.whyMinifyYourJavaScriptContent"
-           v-html="inlineCode(paragraph)"
+        <p
+            v-for="paragraph in i18n.templates.explainer.whyMinifyYourJavaScriptContent"
+            v-html="inlineCode(paragraph)"
         ></p>
 
         <h3>{{ i18n.templates.explainer.usingTerserInAProductionPipeline }}</h3>
 
-        <p v-for="paragraph in i18n.templates.explainer.usingTerserInAProductionPipelineContent"
-           v-html="inlineCode(paragraph)"
+        <p
+            v-for="paragraph in i18n.templates.explainer.usingTerserInAProductionPipelineContent"
+            v-html="inlineCode(paragraph)"
         ></p>
 
         <p>

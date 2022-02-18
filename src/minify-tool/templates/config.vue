@@ -1,5 +1,5 @@
 <!--
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,24 +20,27 @@ limitations under the License.
 
         <div class="field is-grouped presets">
             <div class="control">
-                <a v-tippy
-                   class="button is-primary"
-                   :content="i18n.templates.config.terserDefaultsPreset"
-                   @click="preset('terser')"
+                <a
+                    v-tippy
+                    class="button is-primary"
+                    :content="i18n.templates.config.terserDefaultsPreset"
+                    @click="preset('terser')"
                 >Terser Defaults</a>
             </div>
             <div class="control">
-                <a v-tippy
-                   class="button is-primary"
-                   :content="i18n.templates.config.compressionPreset"
-                   @click="preset('compress')"
+                <a
+                    v-tippy
+                    class="button is-primary"
+                    :content="i18n.templates.config.compressionPreset"
+                    @click="preset('compress')"
                 >Compression</a>
             </div>
             <div class="control">
-                <a v-tippy
-                   class="button is-primary"
-                   :content="i18n.templates.config.safeCompressionPreset"
-                   @click="preset('safe-compress')"
+                <a
+                    v-tippy
+                    class="button is-primary"
+                    :content="i18n.templates.config.safeCompressionPreset"
+                    @click="preset('safe-compress')"
                 >Safe Compression</a>
             </div>
         </div>
@@ -72,10 +75,11 @@ limitations under the License.
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <input v-model.lazy.trim="filename"
-                               class="input"
-                               type="text"
-                               placeholder="dist.min.js"
+                        <input
+                            v-model.lazy.trim="filename"
+                            class="input"
+                            type="text"
+                            placeholder="dist.min.js"
                         />
                         <br />
                         <small>{{ i18n.templates.config.filenameDesc }}</small>
@@ -91,10 +95,11 @@ limitations under the License.
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <VueSelect v-model="comments"
-                                   :options="commentsOptions"
-                                   :clearable="false"
-                                   :reduce="s => s.value"
+                        <VueSelect
+                            v-model="comments"
+                            :options="commentsOptions"
+                            :clearable="false"
+                            :reduce="s => s.value"
                         ></VueSelect>
                     </div>
                 </div>
