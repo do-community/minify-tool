@@ -20,6 +20,8 @@ $header: #0071fe;
 
 @import "~do-bulma/src/style";
 @import "~bulma/sass/utilities/initial-variables";
+@import "~tippy.js/dist/tippy.css";
+@import "~vue-prism-editor/dist/prismeditor.min.css";
 
 .do-bulma {
   @import "fields";

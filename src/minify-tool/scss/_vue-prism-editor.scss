@@ -14,94 +14,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// stylelint-disable property-no-vendor-prefix, selector-class-pattern
-.prism-editor-wrapper {
-  -moz-tab-size: 1.5em;
-  align-items: flex-start;
-  display: flex;
-  height: 100%;
-  overflow: auto;
-  tab-size: 1.5em;
-  width: 100%;
+// stylelint-disable no-duplicate-at-import-rules, selector-class-pattern
+.editor {
+  background: #fafafa;
+  border: $thin-border;
+  border-radius: $border-radius;
+  padding: .5rem 1rem;
 
-  .prism-editor__line-numbers {
-    flex-shrink: 0;
-    height: 100%;
-    margin-right: 10px;
-    margin-top: 0;
-    overflow: hidden;
-    padding-top: 4px;
+  .prism-editor-wrapper {
+    .prism-editor__container {
+      .prism-editor__textarea {
+        @import "prism/font-fix";
 
-    .prism-editor__line-number {
-      text-align: right;
-      white-space: nowrap;
-    }
-  }
-
-  .prism-editor__container {
-    box-sizing: border-box;
-    height: 100%;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    text-align: left;
-    width: 100%;
-
-    .prism-editor__textarea {
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-font-smoothing: antialiased;
-      -webkit-text-fill-color: transparent;
-      color: inherit;
-      height: 100%;
-      left: 0;
-      overflow: hidden;
-      position: absolute;
-      resize: none;
-      top: 0;
-      width: 100%;
-
-      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-        color: transparent !important;
-
-        &::selection {
-          background-color: #accef7 !important;
-          color: transparent !important;
+        &,
+        &:focus {
+          background: none;
         }
       }
 
-      &.prism-editor__textarea--empty {
-        -webkit-text-fill-color: inherit !important;
+      .prism-editor__editor {
+        @import "prism/prism-fix";
       }
-    }
-
-    .prism-editor__textarea,
-    .prism-editor__editor {
-      background: none;
-      border: 0;
-      box-sizing: inherit;
-      display: inherit;
-      font-family: inherit;
-      font-size: inherit;
-      font-style: inherit;
-      font-variant-ligatures: inherit;
-      font-weight: inherit;
-      letter-spacing: inherit;
-      line-height: inherit;
-      margin: 0;
-      overflow-wrap: break-word;
-      padding: 0;
-      tab-size: inherit;
-      text-indent: inherit;
-      text-rendering: inherit;
-      text-transform: inherit;
-      white-space: pre-wrap;
-      word-wrap: keep-all;
-    }
-
-    .prism-editor__editor {
-      pointer-events: none;
-      position: relative;
     }
   }
 }
-// stylelint-enable property-no-vendor-prefix, selector-class-pattern
+// stylelint-enable no-duplicate-at-import-rules, selector-class-pattern

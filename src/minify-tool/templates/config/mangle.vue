@@ -1,5 +1,5 @@
 <!--
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ limitations under the License.
                 <div class="control">
                     <div class="checkbox">
                         <PrettyCheck v-model="mangleBool" class="p-default p-curve p-fill p-icon">
-                            <i slot="extra" class="icon fas fa-check"></i>
+                            <template #extra>
+                                <i class="icon fas fa-check"></i>
+                            </template>
                             {{ i18n.templates.config.mangle.mangleDesc }}
                         </PrettyCheck>
                     </div>
@@ -41,7 +43,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.eval" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.mangle.evalDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -59,7 +63,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.keep_classnames" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.mangle.classnamesDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -77,7 +83,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.keep_fnames" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.mangle.fnamesDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -95,7 +103,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.toplevel" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.mangle.toplevelDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -113,7 +123,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="mangleOpts.safari10" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.mangle.safari10Desc }}
                                         <!-- TODO: external link to terser docs -->
                                     </PrettyCheck>
@@ -129,7 +141,7 @@ limitations under the License.
 
 <script>
     import i18n from '../../i18n';
-    import PrettyCheck from 'pretty-checkbox-vue/check';
+    import PrettyCheck from 'do-vue/src/templates/pretty-checkbox-vue/pretty_check';
 
     export default {
         name: 'MangleConfig',
