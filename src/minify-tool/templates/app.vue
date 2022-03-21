@@ -1,5 +1,5 @@
 <!--
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ limitations under the License.
                         <a class="button is-primary" @click="generate">{{ i18n.templates.app.compress }}</a>
                         <div class="checkbox">
                             <PrettyCheck v-model="liveCompress" class="p-default p-curve p-fill p-icon">
-                                <i slot="extra" class="icon fas fa-check"></i>
+                                <template #extra>
+                                    <i class="icon fas fa-check"></i>
+                                </template>
                                 {{ i18n.templates.app.liveCompression }}
                             </PrettyCheck>
                         </div>
@@ -111,7 +113,7 @@ limitations under the License.
     // Other packages we need
     import Header from 'do-vue/src/templates/header';
     import Footer from 'do-vue/src/templates/footer';
-    import PrettyCheck from 'pretty-checkbox-vue/check';
+    import PrettyCheck from 'do-vue/src/templates/pretty-checkbox-vue/pretty_check';
     import clone from 'clone';
 
     // Terser! The core of this tool

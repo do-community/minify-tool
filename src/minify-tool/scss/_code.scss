@@ -27,27 +27,6 @@ pre {
   }
 }
 
-// vue-prism-editor (input)
-// stylelint-disable no-duplicate-at-import-rules, selector-class-pattern
-.editor {
-  border: $thin-border;
-  border-radius: $border-radius;
-  padding: .5rem 1rem;
-
-  .prism-editor-wrapper {
-    .prism-editor__container {
-      .prism-editor__textarea {
-        @import "prism/font-fix";
-      }
-
-      .prism-editor__editor {
-        @import "prism/prism-fix";
-      }
-    }
-  }
-}
-// stylelint-enable no-duplicate-at-import-rules, selector-class-pattern
-
 // Toolbar on output
 .code-toolbar {
   > .toolbar {

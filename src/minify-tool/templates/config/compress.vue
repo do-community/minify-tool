@@ -1,5 +1,5 @@
 <!--
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ limitations under the License.
                 <div class="control">
                     <div class="checkbox">
                         <PrettyCheck v-model="compressBool" class="p-default p-curve p-fill p-icon">
-                            <i slot="extra" class="icon fas fa-check"></i>
+                            <template #extra>
+                                <i class="icon fas fa-check"></i>
+                            </template>
                             {{ i18n.templates.config.compress.compressDesc }}
                         </PrettyCheck>
                     </div>
@@ -41,7 +43,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.dead_code" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.compress.deadCodeDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -59,7 +63,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.drop_console" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.compress.dropConsoleDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -77,7 +83,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.drop_debugger" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.compress.dropDebuggerDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -95,7 +103,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_classnames" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.compress.keepClassnamesDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -113,7 +123,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_fargs" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.compress.keepFargsDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -131,7 +143,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_fnames" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.compress.keepFnamesDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -149,7 +163,9 @@ limitations under the License.
                             <div class="control">
                                 <div class="checkbox">
                                     <PrettyCheck v-model="compressOpts.keep_infinity" class="p-default p-curve p-fill p-icon">
-                                        <i slot="extra" class="icon fas fa-check"></i>
+                                        <template #extra>
+                                            <i class="icon fas fa-check"></i>
+                                        </template>
                                         {{ i18n.templates.config.compress.keepInfinityDesc }}
                                     </PrettyCheck>
                                 </div>
@@ -164,7 +180,7 @@ limitations under the License.
 
 <script>
     import i18n from '../../i18n';
-    import PrettyCheck from 'pretty-checkbox-vue/check';
+    import PrettyCheck from 'do-vue/src/templates/pretty-checkbox-vue/pretty_check';
 
     export default {
         name: 'CompressConfig',

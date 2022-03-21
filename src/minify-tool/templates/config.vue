@@ -59,7 +59,9 @@ limitations under the License.
                     <div class="control">
                         <div class="checkbox">
                             <PrettyCheck v-model="module" class="p-default p-curve p-fill p-icon">
-                                <i slot="extra" class="icon fas fa-check"></i>
+                                <template #extra>
+                                    <i class="icon fas fa-check"></i>
+                                </template>
                                 {{ i18n.templates.config.moduleDesc }}
                             </PrettyCheck>
                         </div>
@@ -110,8 +112,11 @@ limitations under the License.
 
 <script>
     import i18n from '../i18n';
-    import PrettyCheck from 'pretty-checkbox-vue/check';
+
+    import PrettyCheck from 'do-vue/src/templates/pretty-checkbox-vue/pretty_check';
     import VueSelect from 'vue-select';
+    import { directive } from 'vue-tippy';
+
     import CompressConfig from './config/compress';
     import MangleConfig from './config/mangle';
 
@@ -122,6 +127,9 @@ limitations under the License.
             VueSelect,
             CompressConfig,
             MangleConfig,
+        },
+        directives: {
+            tippy: directive,
         },
         delegated: {
             compress: false,

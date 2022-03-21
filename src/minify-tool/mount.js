@@ -1,5 +1,5 @@
 /*
-Copyright 2020 DigitalOcean
+Copyright 2022 DigitalOcean
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,15 +15,10 @@ limitations under the License.
 */
 
 import './scss/style';
-import Vue from 'vue';
-import VueTippy from 'vue-tippy';
+import { createApp } from 'vue';
 import App from './templates/app.vue';
 import i18n from './i18n';
 
-Vue.use(VueTippy);
-
 document.head.title = i18n.templates.app.title;
 
-new Vue({
-    render: h => h(App),
-}).$mount('#app');
+createApp(App).mount('#app');
