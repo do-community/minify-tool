@@ -35,8 +35,8 @@
   "homepage": "https://github.com/do-community/minify-tool#readme",
   "dependencies": {
     "clone": "^2.1.2",
-    "do-bulma": "git+https://github.com/do-community/do-bulma.git#MattIPv4/vue-3",
-    "do-vue": "git+https://github.com/do-community/do-vue.git#MattIPv4/vue-3",
+    "do-bulma": "git+https://github.com/do-community/do-bulma.git",
+    "do-vue": "git+https://github.com/do-community/do-vue.git",
     "pretty-bytes": "^6.0.0",
     "pretty-checkbox-vue": "^1.1.9",
     "prismjs": "^1.27.0",
