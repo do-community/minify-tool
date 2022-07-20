@@ -39,7 +39,7 @@ $pretty--color-default: $primary; // stylelint-disable-line scss/dollar-variable
         label {
           color: $dark-grey;
           font-size: 14px;
-          padding-left: calc(#{$margin / 2} + 1.5em);
+          padding-left: calc(#{$margin * .5} + 1.5em);
           text-indent: initial;
 
           &::before,
