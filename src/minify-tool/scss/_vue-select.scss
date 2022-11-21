@@ -14,15 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-$vs-border-color: $border;
-$vs-border-radius: $border-radius;
-$vs-dropdown-box-shadow: 0 2px 4px rgba($dark-blue, .06);
-$vs-state-active-bg: $primary;
-
-@import "~vue-select/src/scss/vue-select";
-
 // stylelint-disable selector-class-pattern
 .v-select {
+  --vs-border-color: #{$border};
+  --vs-border-radius: #{$border-radius};
+  --vs-dropdown-box-shadow: 0 2px 4px #{rgba($dark-blue, .06)};
+  --vs-dropdown-option--active-bg: #{$primary}; // stylelint-disable-line custom-property-pattern
+
   &.vs--open {
     > ul {
       opacity: 1;
