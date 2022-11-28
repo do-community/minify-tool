@@ -14,11 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// Load in the app
 import './scss/style';
+import 'vue-select/dist/vue-select.css';
 import { createApp } from 'vue';
 import App from './templates/app.vue';
 import i18n from './i18n';
 
+// Mount the app
 document.head.title = i18n.templates.app.title;
-
 createApp(App).mount('#app');
