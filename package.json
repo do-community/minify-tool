@@ -45,24 +45,24 @@
     "pretty-checkbox-vue": "^1.1.9",
     "prismjs": "^1.29.0",
     "stringify-object": "^5.0.0",
-    "terser": "^5.19.2",
+    "terser": "^5.27.0",
     "utf8-byte-length": "^1.0.4",
-    "vue": "^3.3.4",
+    "vue": "^3.4.15",
     "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-select": "^4.0.0-beta.6",
-    "vue-tippy": "^6.2.0"
+    "vue-tippy": "^6.4.1"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
-    "eslint": "^8.46.0",
-    "eslint-plugin-vue": "^9.16.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.20.1",
     "posthtml": "^0.16.6",
     "posthtml-extend": "^0.6.5",
-    "sass": "^1.64.2",
-    "stylelint": "^15.10.2",
+    "sass": "^1.70.0",
+    "stylelint": "^15.11.0",
     "stylelint-config-standard-scss": "^10.0.0",
-    "stylelint-order": "^6.0.3",
-    "vue-template-compiler": "^2.7.14"
+    "stylelint-order": "^6.0.4",
+    "vue-template-compiler": "^2.7.16"
   },
   "overrides": {
     "do-vue": {
